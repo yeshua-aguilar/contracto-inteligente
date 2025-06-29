@@ -5,3 +5,7 @@ para usar este contracto tienes que poner estos comandos en el terminal:
 2. npx hardhat run deploy.js
 
 3. npx hardhat run interact.js
+
+para eliminar los contractos es con:
+
+npx hardhat node
