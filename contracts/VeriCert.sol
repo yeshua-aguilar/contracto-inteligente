@@ -169,7 +169,12 @@ contract VeriCert {
      * @notice Verifica la validez y los detalles de un certificado[cite: 8].
      * @dev Es una función de lectura `view`, no genera costos de gas (más allá de la llamada).
      * @param _certificadoId El ID del certificado a verificar.
-     * @return Los detalles completos del certificado.
+     * @return id El ID del certificado.
+     * @return institucionEmisora Dirección de la institución emisora.
+     * @return nombreCertificado Nombre del certificado.
+     * @return nombreDestinatario Nombre del destinatario.
+     * @return fechaEmision Fecha de emisión.
+     * @return esValido Indica si el certificado es válido (no revocado).
      */
     function verificarCertificado(bytes32 _certificadoId)
         public

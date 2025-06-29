@@ -1,4 +1,41 @@
 {
   "_format": "hh-sol-cache-2",
-  "files": {}
+  "files": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\contracto-inteligente\\contracts\\VeriCert.sol": {
+      "lastModificationDate": 1751158108622,
+      "contentHash": "eab27b9152da157121982316eee77019",
+      "sourceName": "contracts/VeriCert.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "VeriCert"
+      ]
+    }
+  }
 }

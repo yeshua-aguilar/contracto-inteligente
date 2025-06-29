@@ -6,7 +6,7 @@ async function main() {
   // Desplegar contrato
   const VeriCert = await ethers.getContractFactory("VeriCert");
   const vericert = await VeriCert.deploy();
-  await vericert.deployed();
+  await vericert.waitForDeployment();
 
   // Autorizar institución
   await vericert.autorizarInstitucion(institucion.address);
@@ -17,7 +17,22 @@ async function main() {
     "Juan Pérez"
   );
   const receipt = await tx.wait();
-  const certificadoId = receipt.events[0].args.certificadoId;
+
+  // Decodificar el evento CertificadoEmitido usando la interfaz del contrato
+  const iface = vericert.interface;
+  let certificadoId;
+  for (const log of receipt.logs) {
+    try {
+      const parsed = iface.parseLog(log);
+      if (parsed.name === "CertificadoEmitido") {
+        certificadoId = parsed.args.certificadoId;
+        break;
+      }
+    } catch (e) {
+      // No es un log de este contrato, continuar
+      continue;
+    }
+  }
 
   // Verificar certificado
   const cert = await vericert.verificarCertificado(certificadoId);
